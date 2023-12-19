@@ -13,6 +13,9 @@ export const Dates: CollectionConfig = {
     read: isAdminOrEditorOrPublished,
     delete: isAdminOrEditor,
   },
+  versions: {
+    drafts: true,
+  },
   fields: [
     {
       name: "dates",
@@ -32,9 +35,55 @@ export const Dates: CollectionConfig = {
           required: true,
         },
         {
-          name: "datum",
-          label: "Datum",
+          name: "date",
+          label: "Date",
           type: "date",
+          required: true,
+          admin: {
+            date: {
+              pickerAppearance: "dayOnly",
+              displayFormat: "dd MM yyyy",
+            },
+          },
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "timeStart",
+              label: "Start Time",
+              type: "date",
+              required: true,
+              admin: {
+                date: {
+                  pickerAppearance: "timeOnly",
+                  displayFormat: "hh:mm",
+                },
+              },
+            },
+            {
+              name: "timeEnd",
+              label: "End Time",
+              type: "date",
+              admin: {
+                date: {
+                  pickerAppearance: "timeOnly",
+                  displayFormat: "hh:mm",
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: "location",
+          label: "Location",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "department",
+          label: "Department",
+          type: "text",
           required: true,
         },
         {
