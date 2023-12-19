@@ -1,10 +1,49 @@
 import { CollectionConfig } from "payload/types";
+import { isAdminOrEditorOrPublished } from "../access/isAdminOrEditorOrPublished";
+import { isAdminOrEditor } from "../access/isAdminOrEditor";
 
-const Posts: CollectionConfig = {
+export const Posts: CollectionConfig = {
   slug: "posts",
-  auth: true,
-  admin: {},
-  fields: [],
+  admin: {
+    useAsTitle: "title",
+  },
+  access: {
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    read: isAdminOrEditorOrPublished,
+    delete: isAdminOrEditor,
+  },
+  fields: [
+    {
+      name: "post",
+      type: "group",
+      fields: [
+        {
+          name: "title",
+          label: "Title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "autor",
+          label: "Autor",
+          type: "relationship",
+          relationTo: "users",
+          required: true,
+        },
+        {
+          name: "datum",
+          label: "Datum",
+          type: "date",
+          required: true,
+        },
+        {
+          name: "content",
+          label: "Inhalt",
+          type: "richText",
+          required: true,
+        },
+      ],
+    },
+  ],
 };
-
-export default Posts;
