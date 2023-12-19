@@ -37,55 +37,89 @@ export interface User {
 }
 export interface Post {
   id: string;
+  post: {
+    title: string;
+    autor: string | User;
+    datum: string;
+    content: {
+      root: {
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        type: string;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+  };
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password: string | null;
 }
 export interface Datenschutz {
   id: string;
+  datenschutz: {
+    title: string;
+    autor: string | User;
+    datum: string;
+    content: {
+      root: {
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        type: string;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+  };
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password: string | null;
 }
 export interface Impressum {
   id: string;
+  impressum: {
+    title: string;
+    autor: string | User;
+    datum: string;
+    content: {
+      root: {
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        type: string;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+  };
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password: string | null;
 }
 export interface Date {
   id: string;
+  dates: {
+    title: string;
+    autor: string | User;
+    datum: string;
+    content: string;
+  };
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password: string | null;
 }
 export interface Media {
   id: string;
@@ -101,27 +135,10 @@ export interface Media {
 }
 export interface PayloadPreference {
   id: string;
-  user:
-    | {
-        relationTo: 'users';
-        value: string | User;
-      }
-    | {
-        relationTo: 'posts';
-        value: string | Post;
-      }
-    | {
-        relationTo: 'datenschutz';
-        value: string | Datenschutz;
-      }
-    | {
-        relationTo: 'impressum';
-        value: string | Impressum;
-      }
-    | {
-        relationTo: 'dates';
-        value: string | Date;
-      };
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
   key?: string | null;
   value?:
     | {
