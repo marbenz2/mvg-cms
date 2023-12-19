@@ -63,23 +63,5 @@ export const Users: CollectionConfig = {
         },
       ],
     },
-    /*  {
-      name: "sites",
-      // Save this field to JWT so we can use from `req.user`
-      saveToJWT: true,
-      type: "relationship",
-      relationTo: "sites",
-      hasMany: true,
-      access: {
-        // Only admins can create or update a value for this field
-        create: isAdminFieldLevel,
-        update: isAdminFieldLevel,
-      },
-      admin: {
-        condition: ({ roles }) => roles && !roles.includes("admin"),
-        description:
-          "This field sets which sites that this user has access to.",
-      },
-    }, */
   ],
 };
