@@ -34,5 +34,7 @@
   },
   "resolutions": {
     "jackspeak": "2.1.1"
-  }
+  },
+  "repository": "https://github.com/marbenz2/mvg-cms.git",
+  "author": "Marcel Benzinger <benzinger.marcel@gmail.com>"
 }
