@@ -13,6 +13,9 @@ export const Impressum: CollectionConfig = {
     read: isAdminOrEditorOrPublished,
     delete: isAdminOrEditor,
   },
+  versions: {
+    drafts: true,
+  },
   fields: [
     {
       name: "impressum",

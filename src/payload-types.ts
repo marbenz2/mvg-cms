@@ -59,6 +59,7 @@ export interface Post {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 export interface Datenschutz {
   id: string;
@@ -84,6 +85,7 @@ export interface Datenschutz {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 export interface Impressum {
   id: string;
@@ -109,23 +111,30 @@ export interface Impressum {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 export interface Date {
   id: string;
   dates: {
     title: string;
     autor: string | User;
-    datum: string;
+    date: string;
+    timeStart: string;
+    timeEnd?: string | null;
+    location: string;
+    department: string;
     content: string;
   };
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 export interface Media {
   id: string;
   alt: string;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
   url?: string | null;
   filename?: string | null;
   mimeType?: string | null;

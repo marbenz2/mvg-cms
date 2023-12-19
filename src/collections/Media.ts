@@ -11,6 +11,9 @@ export const Media: CollectionConfig = {
     read: isAdminOrEditorOrPublished,
     delete: isAdminOrEditor,
   },
+  versions: {
+    drafts: true,
+  },
   fields: [
     {
       name: "alt",
