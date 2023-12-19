@@ -14,6 +14,7 @@ import { Dates } from "./collections/Dates";
 import { Media } from "./collections/Media";
 
 export default buildConfig({
+  cors: ["https://mvg-frontend-marbenz2.vercel.app"],
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
