@@ -7,10 +7,10 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload/config";
 
 import { Users } from "./collections/Users";
-import Posts from "./collections/Posts";
-import Datenschutz from "./collections/Datenschutz";
-import Impressum from "./collections/Impressum";
-import Dates from "./collections/Dates";
+import { Posts } from "./collections/Posts";
+import { Datenschutz } from "./collections/Datenschutz";
+import { Impressum } from "./collections/Impressum";
+import { Dates } from "./collections/Dates";
 import { Media } from "./collections/Media";
 
 export default buildConfig({
